@@ -1,0 +1,16 @@
+     QA:
+        inputSelector: search_form_input_homepage
+        inputSelectorType: ID
+        searchButtonSelector: search_button_homepage
+        searchButtonSelectorType: ID
+        url: https://duckduckgo.com/
+        resultBoxSelector: module__title__link
+        resultBoxSelectorType: CLASS
+     DEV:
+        inputSelector: search_form_input_homepage
+        inputSelectorType: ID
+        searchButtonSelector: search_button_homepage
+        searchButtonSelectorType: Id
+        url: https://duckduckgo.com/
+        resultBoxSelector: module__title__link
+        resultBoxSelectorType: CLASS

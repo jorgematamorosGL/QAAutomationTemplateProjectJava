@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="true">
+   <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+  
+   <!-- Formato de la lineas de log -->
+   <property name="FILE_LOG_PATTERN" value="%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level - %msg%n" /> 
+   
+   <!-- Define the file location here -->
+   <property name="FLIE_LOCATION" value="C:/Logs/" /> 
+  
+   <!-- Define file name  -->
+   <property name="LOG_FILE" value="QALogginTest" />
+   
+  <!-- extension del archivo , pude der de  tipo log o txt-->
+  <property name="FILE_EXT" value="txt" />
+  
+
+<!-- Appender de la consola -->
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		    <encoder >
+		      <Pattern>${FILE_LOG_PATTERN}</Pattern>
+		    </encoder>
+		</appender>
+
+
+
+<appender name="FILE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${FLIE_LOCATION}QALogginTest.${FILE_EXT}</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <!-- patron de archivo, donde %d{yyyy-MM-dd_HH} indica que el nombre sea con formato de fecha(año mes dia)  y 'gz' que indica que el archivo se pueda comprimir -->
+      <fileNamePattern>${FLIE_LOCATION}${LOG_FILE}-%d{yyyy-MM-dd}.%i.${FILE_EXT}.gz</fileNamePattern>
+       <!-- capacidad máxima para el tamaño de cada archivo -->
+       <maxFileSize>5MB</maxFileSize>    
+       <!-- Cantidad máxima de archivos en el historial, si la cantidad es mayor, los registros viejos serán eliminados -->
+       <maxHistory>20</maxHistory>
+       
+       <!-- maxima capacidad de almacenamiento para los historicos , similar a max history, si el alamacenamiento se sobrepasa, los archivos mas antiguos serán eliminados -->
+       <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+</appender>
+
+<appender name="INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${FLIE_LOCATION}InfoFile.${FILE_EXT}</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <!-- patron de archivo, donde %d{yyyy-MM-dd_HH} indica que el nombre sea con formato de fecha(año mes dia)  y 'gz' que indica que el archivo se pueda comprimir -->
+      <fileNamePattern>${FLIE_LOCATION}InfoFile-%d{yyyy-MM-dd}.%i.${FILE_EXT}.gz</fileNamePattern>
+       <!-- capacidad máxima para el tamaño de cada archivo -->
+       <maxFileSize>5MB</maxFileSize>    
+       <!-- Cantidad máxima de archivos en el historial, si la cantidad es mayor, los registros viejos serán eliminados -->
+       <maxHistory>20</maxHistory>
+       
+       <!-- maxima capacidad de almacenamiento para los historicos , similar a max history, si el alamacenamiento se sobrepasa, los archivos mas antiguos serán eliminados -->
+       <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+</appender>
+
+
+ <logger name="qa.console.appender" level="WARN"> 
+       <appender-ref ref="CONSOLE" />
+ </logger>
+
+ <logger name="qa.file.appender" level="ERROR"> 
+       <appender-ref ref="FILE_LOG" />
+ </logger>
+ 
+  <logger name="qa.info.appender" level="INFO"> 
+       <appender-ref ref="INFO_LOG" />
+ </logger>
+ 
+
+<!-- Define que appenders incuir o on en logger principal -->
+<!--  
+<root level="INFO">
+    <appender-ref ref="FILE_LOG" />
+    <appender-ref ref="CONSOLE" />
+  </root>-->
+</configuration>

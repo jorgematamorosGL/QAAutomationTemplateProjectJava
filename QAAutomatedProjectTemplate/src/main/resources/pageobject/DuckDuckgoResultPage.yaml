@@ -1,0 +1,30 @@
+     QA:
+        allLinkSelectorValue: a[data-zci-link='web']
+        allLinkSelectorType: CSS
+        dictionarySelectorValue: a[data-zci-link='dictionary_definition']
+        dictionarySelectorType: CSS
+        definitionTitleSelectorValue: "div#zci-dictionary_definition div.cw div.zci__body h3 span.zci__def__word"  
+        definitionTitleSelectorType: CSS
+        definitionResultSelectorValue: "div#zci-dictionary_definition div.cw div.zci__body ul li div.zci__def__definition"
+        definitionResultSelectorType: CSS
+        inputTextResultSelectorValue: search_form_input
+        inputTextResultSelectorType: ID
+        inputClearTextSelectorType: ID
+        inputClearTextSelectorValue: search_form_input_clear
+        inputSearchButtonSelectorType: ID
+        inputSearchButtonSelectorValue: search_button 
+     DEV:
+        allLinkSelectorValue: a[data-zci-link='web']
+        allLinkSelectorType: CSS
+        dictionarySelectorValue: a[data-zci-link='dictionary_definition']
+        dictionarySelectorType: CSS
+        definitionTitleSelectorValue: "div#zci-dictionary_definition div.cw div.zci__body h3 span.zci__def__word text--primary"  
+        definitionTitleSelectorType: CSS
+        definitionResultSelectorValue: "div#zci-dictionary_definition div.cw div.zci__body ul li div.zci__def__definition"
+        definitionResultSelectorType: CSS
+        inputTextResultSelectorValue: search_form_input
+        inputTextResultSelectorType: ID
+        inputClearTextSelectorType: ID
+        inputClearTextSelectorValue: search_form_input_clear
+        inputSearchButtonSelectorType: ID
+        inputSearchButtonSelectorValue: search_button 

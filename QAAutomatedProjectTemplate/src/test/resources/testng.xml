@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="QaTestExample">
+	<!-- Archivo principal de test ng, se debe ejecutar con el plugin TestNG 
+		o popr medio de líneas de comando usando mvn:test -->
+
+	<listeners>
+	    <listener class-name="e2e.config.ProjectConfig" />
+		<!--  <listener class-name="bminc.eu.utils.CustomisedReports" />-->
+	</listeners>
+
+
+	<test thread-count="1" name="Demo">
+		<parameter name="browser" value="Firefox"/>
+		<parameter name="dataEnviroment" value="QA"/>
+		
+		<!--  
+		<groups>
+		
+		
+			<define name="GameGroup">
+				<include name="GameSetup" />
+			</define>
+
+
+			<define name="FormAdminGroup">
+				<include name="FormAdmin" />
+			</define>
+
+			<define name="all">
+				<include name="GameSetup" />
+				<include name="FormAdmin" />
+			</define>
+
+			<run>
+				<include name="GameSetup" />
+			</run>
+		</groups>
+		-->
+		
+		
+		<!--  
+		<classes>
+			<class name="e2e.example.DuckDuckGoTestExample" />
+		</classes>-->
+		<packages>
+      <package name="e2e.example" />
+   </packages>
+	</test>
+	<!-- Test -->
+</suite> <!-- Suite -->
