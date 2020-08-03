@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="QaTestExample">
+<suite name="QaTestExample" parallel="tests" thread-count="5">
 	<!-- Archivo principal de test ng, se debe ejecutar con el plugin TestNG 
 		o popr medio de líneas de comando usando mvn:test -->
 
@@ -10,7 +10,7 @@
 	</listeners>
 
 
-	<test thread-count="1" name="Demo">
+	<test  name="Demo">
 		<parameter name="browser" value="Firefox"/>
 		<parameter name="dataEnviroment" value="QA"/>
 		
@@ -47,5 +47,14 @@
       <package name="e2e.example" />
    </packages>
 	</test>
+	<!-- /*thread-count="2"*/ -->
+   <test  name="Demo2">
+		<parameter name="browser" value="Chrome"/>
+		<parameter name="dataEnviroment" value="QA"/>
+		
+		<packages>
+      <package name="e2e.example" />
+   </packages>
+	</test>
 	<!-- Test -->
-</suite> <!-- Suite -->
+</suite>

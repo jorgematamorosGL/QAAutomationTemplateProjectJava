@@ -16,5 +16,19 @@ public  class Helper {
 public static SoftAssert softAssertInstance() {
 	return new  SoftAssert();
 }
+
+
+/**
+ * Checks if an string does not contains any character
+ * @param stringToEvaluate
+ * @return
+ */
+public static boolean isEmptyString(String stringToEvaluate) {
+	if(null == stringToEvaluate || stringToEvaluate.isBlank() || stringToEvaluate.isEmpty()) {
+		return true;
+	}else {
+		return false;
+	}
+}
   
 }

@@ -71,20 +71,37 @@ public class SetUp {
 					duckDuckGoData = duckDuckGoObjEnviroment.getQA();
 					duckDuckGoResultData = duckDuckGoObjResultEnviroment.getQA();
 					break;
-			}
-			
-			//Load properties 
-			filePath = new File("src/main/resources/projectproperties.yaml").getAbsolutePath();
-		
-			resourceFile = new File(filePath);
-		
-			reader = new FileReader(resourceFile);
-			propertiesMap = (Map<String, Object>) yaml.load(reader);
-
-			WebDriverFactory.getDriverFactoryIntance().setDriversMapVersion(propertiesMap);
-
-			
+			}	
 		}
+		
+	}
+	
+	
+	public void setUpTestConfigurations() throws FileNotFoundException {
+		String filePath = new File("src/main/resources/pageobject/").getAbsolutePath();
+		Reader reader = null;
+		File resourceFile = null;
+		Yaml yaml = null;
+		Map<String,Object> propertiesMap = null;
+		
+		//Load properties 
+		filePath = new File("src/main/resources/projectproperties.yaml").getAbsolutePath();
+		  resourceFile = new File(filePath.concat("/duckduckgo.yaml"));
+		  
+		resourceFile = new File(filePath);
+	
+		reader = new FileReader(resourceFile);
+		propertiesMap = (Map<String, Object>) yaml.load(reader);
+
+		//Load properties 
+		filePath = new File("src/main/resources/projectproperties.yaml").getAbsolutePath();
+	
+		resourceFile = new File(filePath);
+	
+		reader = new FileReader(resourceFile);
+		propertiesMap = (Map<String, Object>) yaml.load(reader);
+
+		WebDriverFactory.getDriverFactoryIntance().setDriversMapVersion(propertiesMap);
 	}
 	
 }

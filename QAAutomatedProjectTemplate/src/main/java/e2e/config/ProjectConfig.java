@@ -2,6 +2,7 @@ package e2e.config;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
+import org.testng.ITestContext;
 import org.testng.xml.XmlSuite;
 
 import e2e.utils.*;
@@ -14,7 +15,7 @@ public class ProjectConfig implements ISuiteListener  {
 		// TODO Auto-generated method stub
 		try {
 			 ExceptionHandler.getInstanceHandler().logInfo("suite name "+suite.getName() );
-
+			// ITestContext testContext = suite.get;
 	
 		}catch(Exception e) {
 			StringBuilder parametersArg = new StringBuilder("");

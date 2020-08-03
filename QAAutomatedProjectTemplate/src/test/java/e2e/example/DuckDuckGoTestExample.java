@@ -1,9 +1,12 @@
 package e2e.example;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 /*
@@ -42,7 +45,7 @@ public class DuckDuckGoTestExample {
 		dataEnviroment = dataEnviroment!=null?dataEnviroment:"QA";
 		browserType = browserType!=null?browserType:"Chrome";
 		
-	 BrowserType bType =	BrowserType.valueOf(browserType.toUpperCase());
+	    BrowserType bType =	BrowserType.valueOf(browserType.toUpperCase());
 	 
 	
 	    ExceptionHandler.getInstanceHandler().logInfo("browser for test"+ bType.getBrowserName());
@@ -54,8 +57,7 @@ public class DuckDuckGoTestExample {
 		pageObjectResult.setDuckDuckGoResultPageData(SetUp.duckDuckGoResultData);
 		List<String> browserOptions = new ArrayList<String>();
 		browserOptions.add("--start-maximized");
-		System.out.print("Version del driver en la clase "+WebDriverFactory.getDriverFactoryIntance().getDriversMapVersion().get(BrowserType.EDGE.getBrowserName()));
-	//	webElementFactory = new WebElementsFactory(WebDriverFactory.getDriverFactoryIntance().getCrhomeDriver(browserOptions) );
+	
 		webElementFactory =  new WebElementsFactory(WebDriverFactory.getDriverFactoryIntance().getDriver(null,bType));
 		pageObject.setWebElementsFactory(webElementFactory);
 		pageObjectResult.setWebElementFactory(webElementFactory);
@@ -106,7 +108,7 @@ public class DuckDuckGoTestExample {
 	
 	@Test(dependsOnMethods={"all_Tab_Is_selected_By_Default"},dataProvider = "DuckDuckGoSearchCriteria", dataProviderClass = TestDataProvider.class)
 	public void  definiton_tab_displays_criteria_search_definition(String searchCriteria) {
-		//Arrange
+		        //Arrange
 				String definitionTitle = "";
 				String definitionText = "";
 				
@@ -128,9 +130,14 @@ public class DuckDuckGoTestExample {
 	}
 	
  
+	@AfterMethod
+	public void registerTestResult(ITestResult testResult) throws IOException {
+		webElementFactory.takeSnapshot(this.getClass().getName(),testResult.getName());
+	}
 	
 	@AfterTest
 	 public void afterTest() {
+	
 		webElementFactory.finish();
 	}
 }
