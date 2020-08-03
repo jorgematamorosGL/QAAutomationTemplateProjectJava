@@ -73,6 +73,13 @@
 		    <version>7.1.0</version>
 		</dependency>
 		
+			
+	    <!-- screen-recorder-->
+	   <dependency>
+	    <groupId>com.pojosontheweb</groupId>
+	    <artifactId>monte-repack</artifactId>
+	    <version>1.0</version>
+	  </dependency>
 	</dependencies>
 
 
