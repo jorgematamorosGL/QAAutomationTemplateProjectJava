@@ -11,7 +11,7 @@
 
 
 	<test  name="Demo">
-		<parameter name="browser" value="Firefox"/>
+		<parameter name="browser" value="Chrome"/>
 		<parameter name="dataEnviroment" value="QA"/>
 		
 		<!--  
@@ -47,8 +47,9 @@
       <package name="e2e.example" />
    </packages>
 	</test>
-	<!-- /*thread-count="2"*/ -->
-   <test  name="Demo2">
+	<!-- /*thread-count="2"*/--> 
+   <test  name="Demo2" >
+      
 		<parameter name="browser" value="Chrome"/>
 		<parameter name="dataEnviroment" value="QA"/>
 		

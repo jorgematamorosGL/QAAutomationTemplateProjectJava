@@ -24,7 +24,7 @@ public static SoftAssert softAssertInstance() {
  * @return
  */
 public static boolean isEmptyString(String stringToEvaluate) {
-	if(null == stringToEvaluate || stringToEvaluate.isBlank() || stringToEvaluate.isEmpty()) {
+	if(null == stringToEvaluate || stringToEvaluate.isEmpty()) {
 		return true;
 	}else {
 		return false;

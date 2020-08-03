@@ -132,7 +132,7 @@ public class DuckDuckGoTestExample {
  
 	@AfterMethod
 	public void registerTestResult(ITestResult testResult) throws IOException {
-		webElementFactory.takeSnapshot(this.getClass().getName(),testResult.getName());
+		webElementFactory.takeSnapshot(DuckDuckGoTestExample.class.getName(),testResult.getName());
 	}
 	
 	@AfterTest
